@@ -1,0 +1,26 @@
+$TTL 2d
+
+$ORIGIN irongold.monster.       ; base domain-name
+
+; Start of Authority Resource Record (RR) defining the key characteristics of the zone (domain)
+@       IN      SOA     ns.irongold.monster.    info.irongold.monster. (
+                        20231205    ;serial
+                        12h         ;refresh
+                        15m         ;retry
+                        3w          ;expire
+                        2h          ;minimum ttl
+                        )
+; name server RR for the domain
+        IN      NS      ns.irongold.monster.
+; https://serverfault.com/questions/831132/bind9-cant-resolve-domain-without-prefix-prefix-domain-com
+@       IN      A       13.210.204.153
+
+; domain hosts includes NS and MX records defined above
+; plus any others required
+; for instance a user query for the A RR of joe.example.com will
+; return the IPv4 address 192.168.254.6 from this zone file
+; joe         IN      A       192.168.254.6
+
+ns           IN      A       127.0.0.1 
+www          IN      A       13.210.204.153
+
